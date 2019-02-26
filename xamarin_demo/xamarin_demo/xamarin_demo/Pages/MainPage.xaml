@@ -3,14 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:xamarin_demo"
              x:Class="xamarin_demo.MainPage">
+    <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60*" />
+                <RowDefinition Height="40*" />
+            </Grid.RowDefinitions>
+            <RelativeLayout Grid.Row="0" VerticalOptions="Fill">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Entry x:Name="CityEntry" 
-           Placeholder="City"
-           VerticalOptions="Start"
-            />
-        <Label x:Name="WeatherInfo"/>
-    </StackLayout>
+            <StackLayout VerticalOptions="Fill" HorizontalOptions="Center">
+                <Image Source="sun.png" WidthRequest="100" HeightRequest="100"/>
+                <Label Text="{Binding Temperature}" FontSize="Large"/>
+                <Label Text="{Binding City}" FontSize="Medium"/>
+            </StackLayout>
+                <!--Image Source="sun.png" WidthRequest="100" HeightRequest="100"
+                 RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent, 
+                 Property=Width, Factor=0.5, Constant=-50}"
+                  RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent, 
+                  Property=Height, Factor=0.25, Constant=-50}"/-->
+                
+
+            </RelativeLayout>
+            <StackLayout Grid.Row="1" VerticalOptions="Fill">
+                <Entry x:Name="CityEntry"/>
+                <Label x:Name="WeatherInfo"/>
+            </StackLayout>
+    </Grid>
 
 </ContentPage>

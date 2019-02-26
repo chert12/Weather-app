@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using xamarin_demo.Services;
+using xamarin_demo.ViewModels;
 
 namespace xamarin_demo
 {
@@ -20,11 +21,12 @@ namespace xamarin_demo
         {
             NetworkAdapter nd = new NetworkAdapter();
             var info = await nd.GetCurreentWeatherInfo(CityEntry.Text);
-            System.Diagnostics.Debug.WriteLine(info.name);
-            if(null != info)
-            {
-                WeatherInfo.Text = $"City: {info.name}\nTemperatute: {info.main.temp}\nPressure: {info.main.pressure}\nHumidity: {info.main.humidity}";
-            }
+            this.BindingContext = new CurrentWeatherViewModel(info);
+            //System.Diagnostics.Debug.WriteLine(info.name);
+            //if(null != info)
+            //{
+            //    WeatherInfo.Text = $"City: {info.name}\nTemperatute: {info.main.temp}\nPressure: {info.main.pressure}\nHumidity: {info.main.humidity}";
+            //}
         }
     }
 }
