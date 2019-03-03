@@ -14,19 +14,23 @@ namespace xamarin_demo
         public MainPage()
         {
             InitializeComponent();
-            CityEntry.Completed += OnCityEntered; 
+            Init();
+            //CityEntry.Completed += OnCityEntered; 
+
         }
 
         private async void OnCityEntered(object sender, EventArgs args)
         {
+           // NetworkAdapter nd = new NetworkAdapter();
+            //var info = await nd.GetCurreentWeatherInfo(CityEntry.Text);
+            //.BindingContext = new CurrentWeatherViewModel(info);
+        }
+
+        private async void Init()
+        {
             NetworkAdapter nd = new NetworkAdapter();
-            var info = await nd.GetCurreentWeatherInfo(CityEntry.Text);
+            var info = await nd.GetCurreentWeatherInfo("Kharkiv");
             this.BindingContext = new CurrentWeatherViewModel(info);
-            //System.Diagnostics.Debug.WriteLine(info.name);
-            //if(null != info)
-            //{
-            //    WeatherInfo.Text = $"City: {info.name}\nTemperatute: {info.main.temp}\nPressure: {info.main.pressure}\nHumidity: {info.main.humidity}";
-            //}
         }
     }
 }

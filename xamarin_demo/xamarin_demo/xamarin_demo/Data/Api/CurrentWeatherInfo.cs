@@ -13,7 +13,7 @@ namespace xamarin_demo.Data.Api
         public float visibility;
         public WindInfo wind;
         public CloudsInfo clouds;
-        public ulong dt;
+        public long dt;
         public CountryInfo sys;
         public long id;
         public string name; // city name
@@ -30,7 +30,7 @@ namespace xamarin_demo.Data.Api
     [Serializable]
     public class WeahterInfo
     {
-        public long id;
+        public int id;
         public string main;
         public string description;
         public string icon;
@@ -66,7 +66,7 @@ namespace xamarin_demo.Data.Api
         public long id;
         public float message;
         public string country;
-        public ulong sunrise;
-        public ulong sunset;
+        public long sunrise;
+        public long sunset;
     }
 }
