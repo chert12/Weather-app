@@ -90,13 +90,14 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ImageProvider_iOS.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="SQLite_iOS.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="Resources\weather.db" />
+    <BundleResource Include="Resources\weather.sqlite" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -167,5 +168,59 @@
       <Project>{034F518A-0D05-49DB-B957-8C094C2AC561}</Project>
       <Name>xamarin_demo</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Image\flag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Image\broken_clouds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Image\clear_sky.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Image\degrees_celcius_active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Image\degrees_celcius_disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Image\degrees_fahrenheit_active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Image\degrees_fahrenheit_disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Image\few_clouds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Image\mist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Image\rain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Image\scattered_clouds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Image\shower_rain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Image\snow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Image\sunrise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Image\sunset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Image\thunderstorm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Image\wet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Image\wind.png" />
   </ItemGroup>
 </Project>

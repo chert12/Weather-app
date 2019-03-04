@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using Xamarin.Forms;
 using xamarin_demo.Data.Api;
 using xamarin_demo.Services;
 
@@ -11,10 +12,12 @@ namespace xamarin_demo.ViewModels
     public class CurrentWeatherViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+        private IImageProvider _imageProvider;
         private CurrentWeatherInfo _info;
 
         public CurrentWeatherViewModel(CurrentWeatherInfo info)
         {
+            _imageProvider = DependencyService.Get<IImageProvider>();
             _info = info;
         }
 
@@ -25,8 +28,55 @@ namespace xamarin_demo.ViewModels
 
         public string City
         {
-            //get { return _info.name; }
-            get { return App.Database.GetWeatherIcon(_info.weather.ToList()[0].id); }
+            get { return _info.name; }
+        }
+
+        public string MainWeatherImage
+        {
+            get
+            {
+                return _imageProvider.GetImagePath(App.Database.GetWeatherIcon(_info.weather.ToList()[0].id));
+            }
+        }
+
+        public string HumidityImage
+        {
+            get
+            {
+                return _imageProvider.GetImagePath(AppConstants.Strings.HUMIDITY_IMAGE);
+            }
+        }
+
+        public string WindImage
+        {
+            get
+            {
+                return _imageProvider.GetImagePath(AppConstants.Strings.WIND_IMAGE);
+            }
+        }
+
+        public string PressureImage
+        {
+            get
+            {
+                return _imageProvider.GetImagePath(AppConstants.Strings.PRESSURE_IMAGE);
+            }
+        }
+
+        public string SunriseImage
+        {
+            get
+            {
+                return _imageProvider.GetImagePath(AppConstants.Strings.SUNRISE_IMAGE);
+            }
+        }
+
+        public string SunsetImage
+        {
+            get
+            {
+                return _imageProvider.GetImagePath(AppConstants.Strings.SUNSET_IMAGE);
+            }
         }
 
         public string LocalTime

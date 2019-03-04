@@ -33,8 +33,15 @@ namespace xamarin_demo.Services
         {
             string res = "";
 
-            int id = database.Table<IconComparerDbElement>().Where(i => i.Code == code).FirstOrDefault().ImageId;
-            res = database.Table<WeatherIconDbElement>().Where(i => i.Id == id).FirstOrDefault().Image;
+            try
+            {
+                int id = database.Table<IconComparerDbElement>().Where(i => i.Code == code).FirstOrDefault().ImageId;
+                res = database.Table<WeatherIconDbElement>().Where(i => i.Id == id).FirstOrDefault().Image;
+            }
+            catch(Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+            }
 
             return res;
         }
