@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using xamarin_demo.Pages;
 using xamarin_demo.Services;
 using xamarin_demo.ViewModels;
 
-namespace xamarin_demo
+namespace xamarin_demo.Pages
 {
     public partial class MainPage : ContentPage
     {
@@ -31,6 +32,11 @@ namespace xamarin_demo
             NetworkAdapter nd = new NetworkAdapter();
             var info = await nd.GetCurreentWeatherInfo("Kharkiv");
             this.BindingContext = new CurrentWeatherViewModel(info);
+        }
+
+        private void OnSettingsButtonClicked(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new CitiesPage());
         }
     }
 }

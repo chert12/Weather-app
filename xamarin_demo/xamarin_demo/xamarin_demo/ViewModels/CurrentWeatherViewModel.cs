@@ -28,13 +28,17 @@ namespace xamarin_demo.ViewModels
 
         public string City
         {
-            get { return _info.name; }
+            get { return _info?.name; }
         }
 
         public string MainWeatherImage
         {
             get
             {
+                if(null == _info)
+                {
+                    return "clear_sky.png";
+                }
                 return _imageProvider.GetImagePath(App.Database.GetWeatherIcon(_info.weather.ToList()[0].id));
             }
         }

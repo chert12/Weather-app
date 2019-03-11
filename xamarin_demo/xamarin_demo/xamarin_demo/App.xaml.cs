@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using xamarin_demo.Pages;
 using xamarin_demo.Services;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
@@ -23,8 +24,15 @@ namespace xamarin_demo
 
         public App()
         {
-            InitializeComponent();
-            MainPage = new MainPage();
+            try
+            {
+                InitializeComponent();
+                MainPage = new MainPage();
+            }
+            catch(Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+            }
         }
 
         protected override void OnStart()

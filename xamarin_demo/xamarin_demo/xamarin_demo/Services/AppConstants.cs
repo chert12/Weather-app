@@ -16,7 +16,7 @@ namespace xamarin_demo.Services
             public const string DATABASE_NAME = "weather.sqlite";
 
             /* Images */
-            public const string IOS_IMAGE_FOLDER = "Image";
+            public const string IOS_IMAGE_FOLDER = "Images";
             public const string HUMIDITY_IMAGE = "wet.png";
             public const string WIND_IMAGE = "wind.png";
             public const string PRESSURE_IMAGE = "flag.png";

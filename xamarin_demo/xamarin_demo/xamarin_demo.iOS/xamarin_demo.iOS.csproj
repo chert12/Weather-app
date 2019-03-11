@@ -170,57 +170,66 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Image\flag.png" />
+    <BundleResource Include="Resources\Images\broken_clouds.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Image\broken_clouds.png" />
+    <BundleResource Include="Resources\Images\clear_sky.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Image\clear_sky.png" />
+    <BundleResource Include="Resources\Images\degrees_celcius_active.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Image\degrees_celcius_active.png" />
+    <BundleResource Include="Resources\Images\degrees_celcius_disable.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Image\degrees_celcius_disable.png" />
+    <BundleResource Include="Resources\Images\degrees_fahrenheit_active.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Image\degrees_fahrenheit_active.png" />
+    <BundleResource Include="Resources\Images\degrees_fahrenheit_disable.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Image\degrees_fahrenheit_disable.png" />
+    <BundleResource Include="Resources\Images\few_clouds.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Image\few_clouds.png" />
+    <BundleResource Include="Resources\Images\flag.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Image\mist.png" />
+    <BundleResource Include="Resources\Images\mist.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Image\rain.png" />
+    <BundleResource Include="Resources\Images\rain.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Image\scattered_clouds.png" />
+    <BundleResource Include="Resources\Images\scattered_clouds.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Image\shower_rain.png" />
+    <BundleResource Include="Resources\Images\shower_rain.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Image\snow.png" />
+    <BundleResource Include="Resources\Images\snow.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Image\sunrise.png" />
+    <BundleResource Include="Resources\Images\sunrise.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Image\sunset.png" />
+    <BundleResource Include="Resources\Images\sunset.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Image\thunderstorm.png" />
+    <BundleResource Include="Resources\Images\thunderstorm.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Image\wet.png" />
+    <BundleResource Include="Resources\Images\wet.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Image\wind.png" />
+    <BundleResource Include="Resources\Images\wind.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Images\round_settings_white_24pt_1x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Images\round_settings_white_24pt_2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Images\round_settings_white_24pt_3x.png" />
   </ItemGroup>
 </Project>
