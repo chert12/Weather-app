@@ -224,12 +224,21 @@
     <BundleResource Include="Resources\Images\wind.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Images\round_settings_white_24pt_1x.png" />
+    <BundleResource Include="Resources\Images\round_settings_white_24_1x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Images\round_settings_white_24pt_2x.png" />
+    <BundleResource Include="Resources\Images\round_settings_white_24_2x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Images\round_settings_white_24pt_3x.png" />
+    <BundleResource Include="Resources\Images\round_settings_white_24_3x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Images\round_add_white_24_1x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Images\round_add_white_24_2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Images\round_add_white_24_3x.png" />
   </ItemGroup>
 </Project>

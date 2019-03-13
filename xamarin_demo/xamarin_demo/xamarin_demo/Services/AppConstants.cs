@@ -15,15 +15,16 @@ namespace xamarin_demo.Services
         {
             public const string DATABASE_NAME = "weather.sqlite";
 
-            /* Images */
+            /*** Images ***/
             public const string IOS_IMAGE_FOLDER = "Images";
             public const string HUMIDITY_IMAGE = "wet.png";
             public const string WIND_IMAGE = "wind.png";
             public const string PRESSURE_IMAGE = "flag.png";
             public const string SUNRISE_IMAGE = "sunrise.png";
             public const string SUNSET_IMAGE = "sunset.png";
+            public const string ADD_CITY_IMAGE = "round_add_white_24.png";
 
-
+            /*** Text formats ***/
             public const string CELSIUS_FORMAT = "{0}°C";
             public const string FAHRENHEIT_FORMAT = "{0}°F";
             public const string SUNRISE_FORMAT = "Sunrise\n{0}";
@@ -31,6 +32,8 @@ namespace xamarin_demo.Services
             public const string HUMIDITY_FORMAT = "Humitidy\n{0}%";
             public const string PRESSURE_FORMAT = "Pressure\n{0}";
             public const string WIND_FORMAT = "Wind\n{0} km/h";
+
+            public const string CITY_PAGE_TITLE = "Cities";
         }
     }
 }

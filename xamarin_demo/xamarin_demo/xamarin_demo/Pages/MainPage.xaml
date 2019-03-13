@@ -45,12 +45,7 @@
                                         Android="round_settings_white_24"/>
                 </ImageButton.Source>
             </ImageButton>
-            <!--Image Source="sun.png" WidthRequest="100" HeightRequest="100"
-                 RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent, 
-                 Property=Width, Factor=0.5, Constant=-50}"
-                  RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent, 
-                  Property=Height, Factor=0.25, Constant=-50}"/-->
-                
+
 
         </RelativeLayout>
         <StackLayout Grid.Row="1" VerticalOptions="Fill" BackgroundColor="White">

@@ -27,7 +27,7 @@ namespace xamarin_demo
             try
             {
                 InitializeComponent();
-                MainPage = new MainPage();
+                MainPage = new NavigationPage(new MainPage());
             }
             catch(Exception e)
             {

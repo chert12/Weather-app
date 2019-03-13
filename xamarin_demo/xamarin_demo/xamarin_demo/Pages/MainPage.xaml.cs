@@ -34,9 +34,9 @@ namespace xamarin_demo.Pages
             this.BindingContext = new CurrentWeatherViewModel(info);
         }
 
-        private void OnSettingsButtonClicked(object sender, EventArgs e)
+        private async void OnSettingsButtonClicked(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new CitiesPage());
+            await Navigation.PushAsync(new CitiesPage());
         }
     }
 }
