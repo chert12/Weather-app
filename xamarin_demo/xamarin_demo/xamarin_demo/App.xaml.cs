@@ -27,7 +27,8 @@ namespace xamarin_demo
             try
             {
                 InitializeComponent();
-                MainPage = new NavigationPage(new MainPage());
+                //MainPage = new NavigationPage(new MainPage());
+                MainPage = new NavigationPage(new WeatherMain());
             }
             catch(Exception e)
             {

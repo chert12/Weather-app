@@ -8,7 +8,7 @@ namespace xamarin_demo.Data.Api
     public class CurrentWeatherInfo
     {
         public CoordinatesInfo coord;
-        public IEnumerable<WeahterInfo> weather;
+        public IList<WeahterInfo> weather;
         public WeatherMainInfo main;
         public float visibility;
         public WindInfo wind;

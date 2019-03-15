@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using Xamarin.Forms;
+using xamarin_demo.Data;
 using xamarin_demo.Data.Api;
 using xamarin_demo.Services;
 
@@ -13,104 +14,64 @@ namespace xamarin_demo.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private IImageProvider _imageProvider;
-        private CurrentWeatherInfo _info;
 
-        public CurrentWeatherViewModel(CurrentWeatherInfo info)
+        public CurrentWeatherViewModel(CityWeatherData info)
         {
             _imageProvider = DependencyService.Get<IImageProvider>();
-            _info = info;
+            Temperature = string.Format(AppConstants.Strings.CELSIUS_FORMAT, Utilities.KelvinToCelcius(info.Temperature));
+            City = info.CityName;
+            MainWeatherImage = _imageProvider.GetImagePath(App.Database.GetWeatherIcon(info.MainWeatherImageId));
+            LocalTime = Utilities.GetTime(info.LastUpdateTime);
+            Sunrise = string.Format(AppConstants.Strings.SUNRISE_FORMAT, Utilities.GetTime(info.SunriseTime));
+            Sunset = string.Format(AppConstants.Strings.SUNSET_FORMAT, Utilities.GetTime(info.SunsetTime));
+            Humidity = string.Format(AppConstants.Strings.HUMIDITY_FORMAT, info.Humidity);
+            Pressure = string.Format(AppConstants.Strings.PRESSURE_FORMAT, info.Pressure);
+            Wind = string.Format(AppConstants.Strings.WIND_FORMAT, info.Wind);
         }
 
         public string Temperature
         {
-            get { return string.Format(AppConstants.Strings.CELSIUS_FORMAT,Utilities.KelvinToCelcius(_info.main.temp)); }
+            get; private set;
         }
 
         public string City
         {
-            get { return _info?.name; }
+            get; private set;
         }
 
         public string MainWeatherImage
         {
-            get
-            {
-                if(null == _info)
-                {
-                    return "clear_sky.png";
-                }
-                return _imageProvider.GetImagePath(App.Database.GetWeatherIcon(_info.weather.ToList()[0].id));
-            }
-        }
-
-        public string HumidityImage
-        {
-            get
-            {
-                return _imageProvider.GetImagePath(AppConstants.Strings.HUMIDITY_IMAGE);
-            }
-        }
-
-        public string WindImage
-        {
-            get
-            {
-                return _imageProvider.GetImagePath(AppConstants.Strings.WIND_IMAGE);
-            }
-        }
-
-        public string PressureImage
-        {
-            get
-            {
-                return _imageProvider.GetImagePath(AppConstants.Strings.PRESSURE_IMAGE);
-            }
-        }
-
-        public string SunriseImage
-        {
-            get
-            {
-                return _imageProvider.GetImagePath(AppConstants.Strings.SUNRISE_IMAGE);
-            }
-        }
-
-        public string SunsetImage
-        {
-            get
-            {
-                return _imageProvider.GetImagePath(AppConstants.Strings.SUNSET_IMAGE);
-            }
+            get; private set;
         }
 
         public string LocalTime
         {
-            get { return Utilities.GetTime(_info.dt); }
+            get; private set;
         }
 
         public string Sunrise
         {
-            get { return string.Format(AppConstants.Strings.SUNRISE_FORMAT, Utilities.GetTime(_info.sys.sunrise)); }
+            get; private set;
         }
 
         public string Sunset
         {
-            get { return string.Format(AppConstants.Strings.SUNSET_FORMAT, Utilities.GetTime(_info.sys.sunset)); }
+            get; private set;
         }
 
         public string Humidity
         {
-            get { return string.Format(AppConstants.Strings.HUMIDITY_FORMAT, _info.main.humidity); }
+            get; private set;
         }
 
         public string Pressure
         {
-            get { return string.Format(AppConstants.Strings.PRESSURE_FORMAT, _info.main.pressure); }
+            get; private set;
         }
 
         public string Wind
         {
-            get { return string.Format(AppConstants.Strings.WIND_FORMAT, _info.wind.speed); }
+            get; private set;
         }
 
         protected void OnPropertyChanged(string propName)

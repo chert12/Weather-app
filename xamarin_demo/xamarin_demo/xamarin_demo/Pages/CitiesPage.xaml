@@ -4,7 +4,39 @@
              x:Class="xamarin_demo.Pages.CitiesPage">
     <ContentPage.Content>
         <StackLayout>
-            
+            <ListView x:Name="cityList"
+              HasUnevenRows="True"
+              SelectionMode="None"
+              ItemsSource="{Binding Cities}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="50">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="10*" />
+                                    <ColumnDefinition Width="80*" />
+                                    <ColumnDefinition Width="10*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" WidthRequest="25" HeightRequest="25">
+                                    <Image.Source>
+                                        <OnPlatform x:TypeArguments="ImageSource"
+                                        iOS="Images/round_place_white_24"
+                                        Android="round_place_white_24"/>
+                                    </Image.Source>
+                                </Image>
+                                <Label Grid.Column="1" Text="{Binding CityName}" FontSize="Medium" VerticalOptions="Center"/>
+                                <ImageButton Grid.Column="2" Clicked="OnRemoveButtonClicked" BackgroundColor="Transparent">
+                                    <ImageButton.Source>
+                                        <OnPlatform x:TypeArguments="ImageSource"
+                                        iOS="Images/round_place_white_24"
+                                        Android="round_place_white_24"/>
+                                    </ImageButton.Source>
+                                </ImageButton>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
