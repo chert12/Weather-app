@@ -9,11 +9,26 @@ namespace xamarin_demo.Services
         public static class Values
         {
             public const float KELVIN_VALUE = 273.15f;
+            public const int SUGGEST_MAX_COUNT = 10;
         }
 
         public static class Strings
         {
             public const string DATABASE_NAME = "weather.sqlite";
+
+            /*** Errors ***/
+            public const string ERROR_TITLE = "Error";
+            public const string ERROR_NULL_CITY = "City field cannot be empty.";
+            public const string ERROR_INCORRECT_CITY = "Please select city from dropdown list.";
+
+            /*** Dialogs ***/
+            public const string DIALOG_CLOSE = "Close";
+            public const string DIALOG_INFO = "Info";
+            public const string DIALOG_CITY_ADDED = "New city succesfully added.";
+            public const string DIALOG_CITY_DELETE = "Are you sure want to delete selected city?";
+            public const string DIALOG_OK = "Ok";
+            public const string DIALOG_YES = "Yes";
+            public const string DIALOG_NO = "No";
 
             /*** Images ***/
             public const string IOS_IMAGE_FOLDER = "Images";

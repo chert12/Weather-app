@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using xamarin_demo.Data;
 using xamarin_demo.Data.DatabaseModels;
 using xamarin_demo.Services;
 
@@ -30,7 +31,7 @@ namespace xamarin_demo.Pages
             // or the handler for SuggestionChosen.
             if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
             {
-                _lastSuggestion = App.Database.GetCities(entry.Text);
+                _lastSuggestion = App.Database.GetCitiesWithPrefix(entry.Text);
                 if(null != _lastSuggestion)
                 {
                     var newSuggestion = new List<string>();
@@ -59,6 +60,45 @@ namespace xamarin_demo.Pages
             else
             {
                 // User hit Enter from the search box. Use args.QueryText to determine what to do.
+            }
+        }
+
+        private void OnAddButtonClicked(object sender, EventArgs e)
+        {
+            if(null == entry.Text || string.IsNullOrEmpty(entry.Text))
+            {
+                DisplayAlert(AppConstants.Strings.ERROR_TITLE, AppConstants.Strings.ERROR_NULL_CITY, AppConstants.Strings.DIALOG_CLOSE);
+                return;
+            }
+            CityDataModel cityModel = null;
+            string cityName = "";
+            if (entry.Text.Contains(","))
+            {
+                var tmp = entry.Text.Split(',');
+                cityName = tmp[0];
+            }
+            else
+            {
+                cityName = entry.Text;
+            }
+            foreach (var ct in _lastSuggestion)
+            {
+                if (ct.City.Equals(cityName))
+                {
+                    cityModel = ct;
+                    break;
+                }
+            }
+            if(null != cityModel)
+            {
+                CityWeatherData dt = new CityWeatherData() { CityId = cityModel.CityId, CityName = cityModel.City, CountryName = cityModel.Country };
+                DisplayAlert(AppConstants.Strings.DIALOG_INFO, AppConstants.Strings.DIALOG_CITY_ADDED, AppConstants.Strings.DIALOG_OK);
+                App.Database.AddUserWeatherData(dt);
+            }
+            else
+            {
+                DisplayAlert(AppConstants.Strings.ERROR_TITLE, AppConstants.Strings.ERROR_INCORRECT_CITY, AppConstants.Strings.DIALOG_CLOSE);
+                return;
             }
         }
     }

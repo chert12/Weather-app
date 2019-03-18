@@ -25,11 +25,11 @@
                                     </Image.Source>
                                 </Image>
                                 <Label Grid.Column="1" Text="{Binding CityName}" FontSize="Medium" VerticalOptions="Center"/>
-                                <ImageButton Grid.Column="2" Clicked="OnRemoveButtonClicked" BackgroundColor="Transparent">
+                                <ImageButton CommandParameter="{Binding Id}" Grid.Column="2" Clicked="OnRemoveButtonClicked" BackgroundColor="Transparent">
                                     <ImageButton.Source>
                                         <OnPlatform x:TypeArguments="ImageSource"
-                                        iOS="Images/round_place_white_24"
-                                        Android="round_place_white_24"/>
+                                        iOS="Images/round_delete_outline_white_24"
+                                        Android="round_delete_outline_white_24"/>
                                     </ImageButton.Source>
                                 </ImageButton>
                             </Grid>
