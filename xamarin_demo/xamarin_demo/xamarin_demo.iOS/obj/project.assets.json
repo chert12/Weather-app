@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     "Xamarin.iOS,Version=v1.0": {
+      "dotMorten.Xamarin.Forms.AutoSuggestBox/0.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "3.0.0.446417"
+        },
+        "compile": {
+          "lib/xamarinios10/dotMorten.Xamarin.Forms.AutoSuggestBox.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/dotMorten.Xamarin.Forms.AutoSuggestBox.dll": {}
+        }
+      },
       "Newtonsoft.Json/12.0.1": {
         "type": "package",
         "compile": {
@@ -200,6 +212,7 @@
           "Newtonsoft.Json": "12.0.1",
           "Xam.Plugin.Connectivity": "3.2.0",
           "Xamarin.Forms": "3.4.0.1008975",
+          "dotMorten.Xamarin.Forms.AutoSuggestBox": "0.6.0",
           "sqlite-net-pcl": "1.5.231"
         },
         "compile": {
@@ -211,6 +224,18 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win": {
+      "dotMorten.Xamarin.Forms.AutoSuggestBox/0.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "3.0.0.446417"
+        },
+        "compile": {
+          "lib/xamarinios10/dotMorten.Xamarin.Forms.AutoSuggestBox.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/dotMorten.Xamarin.Forms.AutoSuggestBox.dll": {}
+        }
+      },
       "Newtonsoft.Json/12.0.1": {
         "type": "package",
         "compile": {
@@ -409,6 +434,7 @@
           "Newtonsoft.Json": "12.0.1",
           "Xam.Plugin.Connectivity": "3.2.0",
           "Xamarin.Forms": "3.4.0.1008975",
+          "dotMorten.Xamarin.Forms.AutoSuggestBox": "0.6.0",
           "sqlite-net-pcl": "1.5.231"
         },
         "compile": {
@@ -420,6 +446,18 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x64": {
+      "dotMorten.Xamarin.Forms.AutoSuggestBox/0.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "3.0.0.446417"
+        },
+        "compile": {
+          "lib/xamarinios10/dotMorten.Xamarin.Forms.AutoSuggestBox.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/dotMorten.Xamarin.Forms.AutoSuggestBox.dll": {}
+        }
+      },
       "Newtonsoft.Json/12.0.1": {
         "type": "package",
         "compile": {
@@ -618,6 +656,7 @@
           "Newtonsoft.Json": "12.0.1",
           "Xam.Plugin.Connectivity": "3.2.0",
           "Xamarin.Forms": "3.4.0.1008975",
+          "dotMorten.Xamarin.Forms.AutoSuggestBox": "0.6.0",
           "sqlite-net-pcl": "1.5.231"
         },
         "compile": {
@@ -629,6 +668,18 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x86": {
+      "dotMorten.Xamarin.Forms.AutoSuggestBox/0.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "3.0.0.446417"
+        },
+        "compile": {
+          "lib/xamarinios10/dotMorten.Xamarin.Forms.AutoSuggestBox.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/dotMorten.Xamarin.Forms.AutoSuggestBox.dll": {}
+        }
+      },
       "Newtonsoft.Json/12.0.1": {
         "type": "package",
         "compile": {
@@ -827,6 +878,7 @@
           "Newtonsoft.Json": "12.0.1",
           "Xam.Plugin.Connectivity": "3.2.0",
           "Xamarin.Forms": "3.4.0.1008975",
+          "dotMorten.Xamarin.Forms.AutoSuggestBox": "0.6.0",
           "sqlite-net-pcl": "1.5.231"
         },
         "compile": {
@@ -839,6 +891,30 @@
     }
   },
   "libraries": {
+    "dotMorten.Xamarin.Forms.AutoSuggestBox/0.6.0": {
+      "sha512": "BsBNKGIKd4crkLCvboTCdUZBEXeuKozWI0sFzGhuzwkFWRqgAScWuWN5A0B4HgIDMpXy1EhLyHbc7Ofbes1PbA==",
+      "type": "package",
+      "path": "dotmorten.xamarin.forms.autosuggestbox/0.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dotmorten.xamarin.forms.autosuggestbox.0.6.0.nupkg.sha512",
+        "dotmorten.xamarin.forms.autosuggestbox.nuspec",
+        "lib/monoandroid60/dotMorten.Xamarin.Forms.AutoSuggestBox.dll",
+        "lib/monoandroid60/dotMorten.Xamarin.Forms.AutoSuggestBox.pdb",
+        "lib/monoandroid60/dotMorten.Xamarin.Forms.AutoSuggestBox.xml",
+        "lib/netstandard2.0/dotMorten.Xamarin.Forms.AutoSuggestBox.dll",
+        "lib/netstandard2.0/dotMorten.Xamarin.Forms.AutoSuggestBox.pdb",
+        "lib/netstandard2.0/dotMorten.Xamarin.Forms.AutoSuggestBox.xml",
+        "lib/uap10.0.16299/dotMorten.Xamarin.Forms.AutoSuggestBox.dll",
+        "lib/uap10.0.16299/dotMorten.Xamarin.Forms.AutoSuggestBox.pdb",
+        "lib/uap10.0.16299/dotMorten.Xamarin.Forms.AutoSuggestBox.pri",
+        "lib/uap10.0.16299/dotMorten.Xamarin.Forms.AutoSuggestBox.xml",
+        "lib/xamarinios10/dotMorten.Xamarin.Forms.AutoSuggestBox.dll",
+        "lib/xamarinios10/dotMorten.Xamarin.Forms.AutoSuggestBox.pdb",
+        "lib/xamarinios10/dotMorten.Xamarin.Forms.AutoSuggestBox.xml"
+      ]
+    },
     "Newtonsoft.Json/12.0.1": {
       "sha512": "pBR3wCgYWZGiaZDYP+HHYnalVnPJlpP1q55qvVb+adrDHmFMDc1NAKio61xTwftK3Pw5h7TZJPJEEVMd6ty8rg==",
       "type": "package",

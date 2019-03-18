@@ -32,6 +32,7 @@ namespace xamarin_demo.Services
             public const string HUMIDITY_FORMAT = "Humitidy\n{0}%";
             public const string PRESSURE_FORMAT = "Pressure\n{0}";
             public const string WIND_FORMAT = "Wind\n{0} km/h";
+            public const string CITY_FORMAT = "{0}, {1}";
 
             public const string CITY_PAGE_TITLE = "Cities";
         }

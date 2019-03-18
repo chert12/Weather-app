@@ -1,9 +1,11 @@
 ﻿using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using Xamarin.Forms;
+using xamarin_demo.Data.DatabaseModels;
 
 namespace xamarin_demo.Services
 {
@@ -39,6 +41,22 @@ namespace xamarin_demo.Services
                 res = database.Table<WeatherIconDbElement>().Where(i => i.Id == id).FirstOrDefault().Image;
             }
             catch(Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+            }
+
+            return res;
+        }
+
+        public List<CityDataModel> GetCities(string cityName)
+        {
+            var res = new List<CityDataModel>();
+
+            try
+            {
+                res = database.Table<CityDataModel>().Where(i => i.City.StartsWith(cityName)).ToList();
+            }
+            catch (Exception e)
             {
                 System.Diagnostics.Debug.WriteLine(e.Message);
             }

@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
+      "dotMorten.Xamarin.Forms.AutoSuggestBox/0.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "3.0.0.446417"
+        },
+        "compile": {
+          "lib/netstandard2.0/dotMorten.Xamarin.Forms.AutoSuggestBox.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/dotMorten.Xamarin.Forms.AutoSuggestBox.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -109,6 +121,30 @@
     }
   },
   "libraries": {
+    "dotMorten.Xamarin.Forms.AutoSuggestBox/0.6.0": {
+      "sha512": "BsBNKGIKd4crkLCvboTCdUZBEXeuKozWI0sFzGhuzwkFWRqgAScWuWN5A0B4HgIDMpXy1EhLyHbc7Ofbes1PbA==",
+      "type": "package",
+      "path": "dotmorten.xamarin.forms.autosuggestbox/0.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dotmorten.xamarin.forms.autosuggestbox.0.6.0.nupkg.sha512",
+        "dotmorten.xamarin.forms.autosuggestbox.nuspec",
+        "lib/monoandroid60/dotMorten.Xamarin.Forms.AutoSuggestBox.dll",
+        "lib/monoandroid60/dotMorten.Xamarin.Forms.AutoSuggestBox.pdb",
+        "lib/monoandroid60/dotMorten.Xamarin.Forms.AutoSuggestBox.xml",
+        "lib/netstandard2.0/dotMorten.Xamarin.Forms.AutoSuggestBox.dll",
+        "lib/netstandard2.0/dotMorten.Xamarin.Forms.AutoSuggestBox.pdb",
+        "lib/netstandard2.0/dotMorten.Xamarin.Forms.AutoSuggestBox.xml",
+        "lib/uap10.0.16299/dotMorten.Xamarin.Forms.AutoSuggestBox.dll",
+        "lib/uap10.0.16299/dotMorten.Xamarin.Forms.AutoSuggestBox.pdb",
+        "lib/uap10.0.16299/dotMorten.Xamarin.Forms.AutoSuggestBox.pri",
+        "lib/uap10.0.16299/dotMorten.Xamarin.Forms.AutoSuggestBox.xml",
+        "lib/xamarinios10/dotMorten.Xamarin.Forms.AutoSuggestBox.dll",
+        "lib/xamarinios10/dotMorten.Xamarin.Forms.AutoSuggestBox.pdb",
+        "lib/xamarinios10/dotMorten.Xamarin.Forms.AutoSuggestBox.xml"
+      ]
+    },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "sha512": "a/iSwnRZb+LHFk49hQOyThh/ZNC3vsbZsF65XwQIb863qF6msmhdQtxGXFL28Ob2NsCz/drEj28BJd/YPpLRBg==",
       "type": "package",
@@ -600,6 +636,7 @@
       "Newtonsoft.Json >= 12.0.1",
       "Xam.Plugin.Connectivity >= 3.2.0",
       "Xamarin.Forms >= 3.4.0.1008975",
+      "dotMorten.Xamarin.Forms.AutoSuggestBox >= 0.6.0",
       "sqlite-net-pcl >= 1.5.231"
     ]
   },
@@ -661,6 +698,10 @@
           "Xamarin.Forms": {
             "target": "Package",
             "version": "[3.4.0.1008975, )"
+          },
+          "dotMorten.Xamarin.Forms.AutoSuggestBox": {
+            "target": "Package",
+            "version": "[0.6.0, )"
           },
           "sqlite-net-pcl": {
             "target": "Package",
