@@ -23,9 +23,8 @@ namespace xamarin_demo.Pages
             Title = AppConstants.Strings.CITY_PAGE_TITLE;
             ToolbarItems.Add(new ToolbarItem("Add", _imageProvider.GetImagePath(AppConstants.Strings.ADD_CITY_IMAGE), () =>
             {
-                Navigation.PushModalAsync(new AddCityModal());
+                Navigation.PushModalAsync(new AddCityModal(InitCities));
             }));
-
             InitCities();
             this.BindingContext = this;
         }
@@ -52,13 +51,14 @@ namespace xamarin_demo.Pages
             {
                 Cities.Add(new CityViewModel(string.Format(AppConstants.Strings.CITY_FORMAT, ct.CityName, ct.CountryName), (int)ct.CityId));
             }
+            OnPropertyChanged("Cities");
         }
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            InitCities();
-        }
+        //protected override void OnAppearing()
+        //{
+        //    base.OnAppearing();
+        //    InitCities();
+        //}
     }
 
     public class CityViewModel

@@ -17,10 +17,12 @@ namespace xamarin_demo.Pages
 	public partial class AddCityModal : ContentPage
 	{
         private List<CityDataModel> _lastSuggestion;
+        private Action _onCloseAction;
 
-		public AddCityModal ()
+		public AddCityModal (Action onClose)
 		{
 			InitializeComponent ();
+            _onCloseAction = onClose;
             //entry.Su = new List<string> { "Kharkiv", "Kyiv" };
 		}
 
@@ -63,6 +65,22 @@ namespace xamarin_demo.Pages
             }
         }
 
+        protected override void OnDisappearing()
+        {
+            if(null != _onCloseAction)
+            {
+                try
+                {
+                    _onCloseAction();
+                }
+                catch(Exception e)
+                {
+                    System.Diagnostics.Debug.WriteLine(e.Message);
+                }
+            }
+            base.OnDisappearing();
+        }
+
         private void OnAddButtonClicked(object sender, EventArgs e)
         {
             if(null == entry.Text || string.IsNullOrEmpty(entry.Text))
@@ -94,6 +112,7 @@ namespace xamarin_demo.Pages
                 CityWeatherData dt = new CityWeatherData() { CityId = cityModel.CityId, CityName = cityModel.City, CountryName = cityModel.Country };
                 DisplayAlert(AppConstants.Strings.DIALOG_INFO, AppConstants.Strings.DIALOG_CITY_ADDED, AppConstants.Strings.DIALOG_OK);
                 App.Database.AddUserWeatherData(dt);
+                Navigation.PopModalAsync();
             }
             else
             {

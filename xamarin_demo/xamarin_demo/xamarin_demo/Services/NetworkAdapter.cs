@@ -18,16 +18,16 @@ namespace xamarin_demo.Services
 
         #region interface
 
-        public async Task<CurrentWeatherInfo> GetCurreentWeatherInfo(string city)
+        public async Task<CurrentWeatherInfo> GetCurreentWeatherInfo(string cityId)
         {
-            if(string.IsNullOrEmpty(city))
+            if(string.IsNullOrEmpty(cityId))
             {
                 return null;
             }
             try
             {
                 HttpClient client = new HttpClient();
-                string url = $"http://api.openweathermap.org/data/2.5/weather?q={city}&id=524901&APPID=f7ed34c0ea1213c3a708ec60f163e6f7";
+                string url = $"http://api.openweathermap.org/data/2.5/weather?id={cityId}&APPID=f7ed34c0ea1213c3a708ec60f163e6f7";
                 client.BaseAddress = new Uri(url);
                 var response = await client.GetAsync(client.BaseAddress);
                 response.EnsureSuccessStatusCode();

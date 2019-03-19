@@ -4,13 +4,14 @@ using System.Text;
 using xamarin_demo.Data.Api;
 using System.Linq;
 using SQLite;
+using xamarin_demo.Services;
 
 namespace xamarin_demo.Data
 {
     [Serializable, Table("UserWeatherData")]
     public class CityWeatherData
     {
-        [Unique, PrimaryKey, NotNull, Column("ID")]
+        [AutoIncrement, Unique, PrimaryKey, NotNull, Column("ID")]
         public int Id { get; set; }
         [NotNull, Column("CITY_NAME")]
         public string CityName { get; set; }
@@ -56,6 +57,7 @@ namespace xamarin_demo.Data
                     }
                     data.WeatherInfo = inf.description + end;
                 }
+                data.WeatherInfo = data.WeatherInfo.FirstCharToUpper();
                 data.MainWeatherImageId = apiInfo.weather[0].id;
                 data.LastUpdateTime = apiInfo.dt;
                 data.SunriseTime = apiInfo.sys.sunrise;

@@ -32,11 +32,22 @@
                                     <FileImageSource File="{Binding MainWeatherImage}" />
                                 </Image.Source>
                             </Image>
-                            <Label HorizontalOptions="Center" Text="{Binding Temperature}" TextColor="White" FontSize="Large" FontFamily="Fonts/Roboto-Bold"/>
-                            <Label HorizontalOptions="Center" Text="{Binding City}" TextColor="White" FontSize="Medium"/>
-                            <Label HorizontalOptions="Center" Text="{Binding LocalTime}" TextColor="White" FontSize="Medium"/>
+                            <Label HorizontalOptions="Center" Text="{Binding Temperature}" TextColor="White" FontSize="Large">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS" Value="Roboto-Bold" />
+                                        <On Platform="Android" Value="Fonts/Roboto-Boldttf#Roboto-Bold"/>
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+                            <Label HorizontalOptions="Center" Text="{Binding WeatherDescription}" TextColor="White" FontSize="Medium" FontFamily="Fonts/Roboto-Bold"/>
+                            <Label HorizontalOptions="Center" Text="{Binding City}" TextColor="White" FontSize="Medium" FontAttributes="Italic"/>
                         </StackLayout>
 
+                        <Label HorizontalOptions="Center" Text="{Binding LocalTime}" TextColor="White" FontSize="Micro"
+                               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0, Constant=5}"
+                               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=0.95, Constant=0}"/>
+                        
                         <ImageButton WidthRequest="30" HeightRequest="30" BackgroundColor="Transparent" Clicked="OnSettingsButtonClicked"
                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-35}"
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=0, Constant=5}">

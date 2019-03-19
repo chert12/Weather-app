@@ -26,10 +26,17 @@ namespace xamarin_demo.Pages
 
         private async void Init()
         {
-            NetworkAdapter nd = new NetworkAdapter();
-            var info = await nd.GetCurreentWeatherInfo("Kharkiv");
-            var info2 = await nd.GetCurreentWeatherInfo("Kiev");
-            ItemsSource = new List<CurrentWeatherViewModel>() { new CurrentWeatherViewModel(CityWeatherData.FromApiData(info)), new CurrentWeatherViewModel(CityWeatherData.FromApiData(info2)) };
+            //NetworkAdapter nd = new NetworkAdapter();
+            //var info = await nd.GetCurreentWeatherInfo("Kharkiv");
+            //var info2 = await nd.GetCurreentWeatherInfo("Kiev");
+            var items = App.Database.GetUserWeatherData();
+            var bindingData = new List<CurrentWeatherViewModel>();
+            foreach(var i in items)
+            {
+                bindingData.Add(new CurrentWeatherViewModel(i));
+            }
+            ItemsSource = bindingData;
+            //ItemsSource = new List<CurrentWeatherViewModel>() { new CurrentWeatherViewModel(CityWeatherData.FromApiData(info)), new CurrentWeatherViewModel(CityWeatherData.FromApiData(info2)) };
         }
 
         private async void OnSettingsButtonClicked(object sender, EventArgs e)

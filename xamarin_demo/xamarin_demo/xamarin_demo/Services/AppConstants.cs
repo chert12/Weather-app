@@ -9,7 +9,8 @@ namespace xamarin_demo.Services
         public static class Values
         {
             public const float KELVIN_VALUE = 273.15f;
-            public const int SUGGEST_MAX_COUNT = 10;
+            public const int SUGGEST_MAX_COUNT = 10; // max suggestion cities count
+            public const int MAX_UPDATE_TIME_DIFF = 1; // hour
         }
 
         public static class Strings
@@ -48,6 +49,7 @@ namespace xamarin_demo.Services
             public const string PRESSURE_FORMAT = "Pressure\n{0}";
             public const string WIND_FORMAT = "Wind\n{0} km/h";
             public const string CITY_FORMAT = "{0}, {1}";
+            public const string LAST_UPDATE_FORMAT = "Last update at {0}";
 
             public const string CITY_PAGE_TITLE = "Cities";
         }
