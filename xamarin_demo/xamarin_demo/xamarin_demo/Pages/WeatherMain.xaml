@@ -1,145 +1,148 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:control="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
-             x:Class="xamarin_demo.Pages.WeatherMain"
-             ItemsSource="{Binding Pages}">
-    <CarouselPage.ItemTemplate>
-        <DataTemplate>
-            <ContentPage>
-                <ContentPage.Resources>
-                    <ResourceDictionary>
-                        <Color x:Key="OrangeColor">
-                            <x:Arguments>
-                                <x:Double>.97</x:Double>
-                                <x:Double>.31</x:Double>
-                                <x:Double>.05</x:Double>
-                            </x:Arguments>
-                        </Color>
-                    </ResourceDictionary>
-                </ContentPage.Resources>
+             x:Class="xamarin_demo.Pages.WeatherMain">
 
-                <Grid BackgroundColor="White">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="65*" />
-                        <RowDefinition Height="35*" />
-                    </Grid.RowDefinitions>
-                    <RelativeLayout Grid.Row="0" BackgroundColor="{StaticResource OrangeColor}" VerticalOptions="Fill" HorizontalOptions="Fill">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="OrangeColor">
+                <x:Arguments>
+                    <x:Double>.97</x:Double>
+                    <x:Double>.31</x:Double>
+                    <x:Double>.05</x:Double>
+                </x:Arguments>
+            </Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
-                        <StackLayout VerticalOptions="Fill" HorizontalOptions="Center" Padding="15"
+    <ContentView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <control:CarouselView ItemsSource="{Binding Pages}">
+            <control:CarouselView.ItemTemplate>
+                <DataTemplate>
+
+                    <Grid BackgroundColor="White">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="65*" />
+                            <RowDefinition Height="35*" />
+                        </Grid.RowDefinitions>
+                        <RelativeLayout Grid.Row="0" BackgroundColor="{StaticResource OrangeColor}" VerticalOptions="Fill" HorizontalOptions="Fill">
+
+                            <StackLayout VerticalOptions="Fill" HorizontalOptions="Center" Padding="15"
                         RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
                         RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}">
-                            <Image HorizontalOptions="Center" WidthRequest="150" HeightRequest="150">
-                                <Image.Source>
-                                    <FileImageSource File="{Binding MainWeatherImage}" />
-                                </Image.Source>
-                            </Image>
-                            <Label HorizontalOptions="Center" Text="{Binding Temperature}" TextColor="White" FontSize="Large">
-                                <Label.FontFamily>
-                                    <OnPlatform x:TypeArguments="x:String">
-                                        <On Platform="iOS" Value="Roboto-Bold" />
-                                        <On Platform="Android" Value="Fonts/Roboto-Boldttf#Roboto-Bold"/>
-                                    </OnPlatform>
-                                </Label.FontFamily>
-                            </Label>
-                            <Label HorizontalOptions="Center" Text="{Binding WeatherDescription}" TextColor="White" FontSize="Medium" FontFamily="Fonts/Roboto-Bold"/>
-                            <Label HorizontalOptions="Center" Text="{Binding City}" TextColor="White" FontSize="Medium" FontAttributes="Italic"/>
-                        </StackLayout>
+                                <Image HorizontalOptions="Center" WidthRequest="150" HeightRequest="150">
+                                    <Image.Source>
+                                        <FileImageSource File="{Binding MainWeatherImage}" />
+                                    </Image.Source>
+                                </Image>
+                                <Label HorizontalOptions="Center" Text="{Binding Temperature}" TextColor="White" FontSize="Large">
+                                    <Label.FontFamily>
+                                        <OnPlatform x:TypeArguments="x:String">
+                                            <On Platform="iOS" Value="Roboto-Bold" />
+                                            <On Platform="Android" Value="Fonts/Roboto-Boldttf#Roboto-Bold"/>
+                                        </OnPlatform>
+                                    </Label.FontFamily>
+                                </Label>
+                                <Label HorizontalOptions="Center" Text="{Binding WeatherDescription}" TextColor="White" FontSize="Medium" FontFamily="Fonts/Roboto-Bold"/>
+                                <Label HorizontalOptions="Center" Text="{Binding City}" TextColor="White" FontSize="Medium" FontAttributes="Italic"/>
+                            </StackLayout>
 
-                        <Label HorizontalOptions="Center" Text="{Binding LocalTime}" TextColor="White" FontSize="Micro"
+                            <Label HorizontalOptions="Center" Text="{Binding LocalTime}" TextColor="White" FontSize="Micro"
                                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0, Constant=5}"
                                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=0.95, Constant=0}"/>
 
-                        <ImageButton WidthRequest="30" HeightRequest="30" BackgroundColor="Transparent" Command="{Binding SettingsCommand}"
+                            <ImageButton WidthRequest="30" HeightRequest="30" BackgroundColor="Transparent" Command="{Binding SettingsCommand}"
                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-35}"
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=0, Constant=5}">
-                            <ImageButton.Source>
-                                <OnPlatform x:TypeArguments="ImageSource"
+                                <ImageButton.Source>
+                                    <OnPlatform x:TypeArguments="ImageSource"
                                         iOS="Images/round_settings_white_24"
                                         Android="round_settings_white_24"/>
-                            </ImageButton.Source>
-                        </ImageButton>
+                                </ImageButton.Source>
+                            </ImageButton>
 
 
-                    </RelativeLayout>
-                    <StackLayout Grid.Row="1" VerticalOptions="Fill" BackgroundColor="White">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="100*" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="50*" />
-                                <ColumnDefinition Width="50*" />
-                            </Grid.ColumnDefinitions>
+                        </RelativeLayout>
+                        <StackLayout Grid.Row="1" VerticalOptions="Fill" BackgroundColor="White">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="100*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50*" />
+                                    <ColumnDefinition Width="50*" />
+                                </Grid.ColumnDefinitions>
 
-                            <StackLayout Grid.Row="0" Grid.Column="0" VerticalOptions="Fill">
-                                <Image HorizontalOptions="Center" HeightRequest="25" WidthRequest="25">
-                                  <Image.Source>
-                                    <OnPlatform x:TypeArguments="ImageSource"
+                                <StackLayout Grid.Row="0" Grid.Column="0" VerticalOptions="Fill">
+                                    <Image HorizontalOptions="Center" HeightRequest="25" WidthRequest="25">
+                                        <Image.Source>
+                                            <OnPlatform x:TypeArguments="ImageSource"
                                             iOS="Images/sunrise"
                                             Android="sunrise"/>
-                                  </Image.Source>
-                                </Image>
-                                <Label HorizontalTextAlignment="Center" HorizontalOptions="Center" Text="{Binding Sunrise}" TextColor="{StaticResource OrangeColor}"/>
-                            </StackLayout>
-                            <StackLayout Grid.Row="0" Grid.Column="1">
-                                <Image HorizontalOptions="Center" HeightRequest="25" WidthRequest="25">
-                                  <Image.Source>
-                                    <OnPlatform x:TypeArguments="ImageSource"
+                                        </Image.Source>
+                                    </Image>
+                                    <Label HorizontalTextAlignment="Center" HorizontalOptions="Center" Text="{Binding Sunrise}" TextColor="{StaticResource OrangeColor}"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="0" Grid.Column="1">
+                                    <Image HorizontalOptions="Center" HeightRequest="25" WidthRequest="25">
+                                        <Image.Source>
+                                            <OnPlatform x:TypeArguments="ImageSource"
                                             iOS="Images/sunset"
                                             Android="sunset"/>
-                                  </Image.Source>
-                                </Image>
-                                <Label HorizontalTextAlignment="Center" HorizontalOptions="Center" Text="{Binding Sunset}" TextColor="{StaticResource OrangeColor}"/>
-                            </StackLayout>
-                        </Grid>
+                                        </Image.Source>
+                                    </Image>
+                                    <Label HorizontalTextAlignment="Center" HorizontalOptions="Center" Text="{Binding Sunset}" TextColor="{StaticResource OrangeColor}"/>
+                                </StackLayout>
+                            </Grid>
 
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="100*" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="33.3*" />
-                                <ColumnDefinition Width="33.3*" />
-                                <ColumnDefinition Width="33.3*" />
-                            </Grid.ColumnDefinitions>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="100*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="33.3*" />
+                                    <ColumnDefinition Width="33.3*" />
+                                    <ColumnDefinition Width="33.3*" />
+                                </Grid.ColumnDefinitions>
 
-                            <StackLayout Grid.Row="0" Grid.Column="0">
-                                <Image HorizontalOptions="Center" HeightRequest="25" WidthRequest="25">
-                                  <Image.Source>
-                                    <OnPlatform x:TypeArguments="ImageSource"
+                                <StackLayout Grid.Row="0" Grid.Column="0">
+                                    <Image HorizontalOptions="Center" HeightRequest="25" WidthRequest="25">
+                                        <Image.Source>
+                                            <OnPlatform x:TypeArguments="ImageSource"
                                             iOS="Images/wet"
                                             Android="wet"/>
-                                  </Image.Source>
-                                </Image>
-                                <Label HorizontalTextAlignment="Center" HorizontalOptions="Center" Text="{Binding Humidity}" TextColor="{StaticResource OrangeColor}"/>
-                            </StackLayout>
-                            <StackLayout Grid.Row="0" Grid.Column="1">
-                                <Image HorizontalOptions="Center" HeightRequest="25" WidthRequest="25">
-                                  <Image.Source>
-                                    <OnPlatform x:TypeArguments="ImageSource"
+                                        </Image.Source>
+                                    </Image>
+                                    <Label HorizontalTextAlignment="Center" HorizontalOptions="Center" Text="{Binding Humidity}" TextColor="{StaticResource OrangeColor}"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="0" Grid.Column="1">
+                                    <Image HorizontalOptions="Center" HeightRequest="25" WidthRequest="25">
+                                        <Image.Source>
+                                            <OnPlatform x:TypeArguments="ImageSource"
                                             iOS="Images/flag"
                                             Android="flag"/>
-                                  </Image.Source>
-                                </Image>
-                                <Label HorizontalTextAlignment="Center" HorizontalOptions="Center" Text="{Binding Pressure}" TextColor="{StaticResource OrangeColor}"/>
-                            </StackLayout>
-                            <StackLayout Grid.Row="0" Grid.Column="2">
-                                <Image HorizontalOptions="Center" HeightRequest="25" WidthRequest="25">
-                                  <Image.Source>
-                                    <OnPlatform x:TypeArguments="ImageSource"
+                                        </Image.Source>
+                                    </Image>
+                                    <Label HorizontalTextAlignment="Center" HorizontalOptions="Center" Text="{Binding Pressure}" TextColor="{StaticResource OrangeColor}"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="0" Grid.Column="2">
+                                    <Image HorizontalOptions="Center" HeightRequest="25" WidthRequest="25">
+                                        <Image.Source>
+                                            <OnPlatform x:TypeArguments="ImageSource"
                                             iOS="Images/wind"
                                             Android="wind"/>
-                                  </Image.Source>
-                                </Image>
-                                <Label HorizontalTextAlignment="Center" HorizontalOptions="Center" Text="{Binding Wind}" TextColor="{StaticResource OrangeColor}"/>
-                            </StackLayout>
-                        </Grid>
+                                        </Image.Source>
+                                    </Image>
+                                    <Label HorizontalTextAlignment="Center" HorizontalOptions="Center" Text="{Binding Wind}" TextColor="{StaticResource OrangeColor}"/>
+                                </StackLayout>
+                            </Grid>
 
-                    </StackLayout>
-                </Grid>
+                        </StackLayout>
+                    </Grid>
+                </DataTemplate>
+            </control:CarouselView.ItemTemplate>
+        </control:CarouselView>
+    </ContentView>
 
-            </ContentPage>
-        </DataTemplate>
-    </CarouselPage.ItemTemplate>
-</CarouselPage>
+</ContentPage>

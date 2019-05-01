@@ -13,7 +13,7 @@ using xamarin_demo.ViewModels;
 namespace xamarin_demo.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class WeatherMain : CarouselPage
+    public partial class WeatherMain : ContentPage
     {
         public WeatherMain()
         {
@@ -25,7 +25,6 @@ namespace xamarin_demo.Pages
         protected override void OnDisappearing()
         {
             UnapplyBindings();
-            Children.Clear();
             base.OnDisappearing();
         }
 
