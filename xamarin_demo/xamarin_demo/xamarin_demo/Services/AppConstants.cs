@@ -26,7 +26,7 @@ namespace xamarin_demo.Services
             public const string DIALOG_CLOSE = "Close";
             public const string DIALOG_INFO = "Info";
             public const string DIALOG_CITY_ADDED = "New city succesfully added.";
-            public const string DIALOG_CITY_DELETE = "Are you sure want to delete selected city?";
+            public const string DIALOG_CITY_DELETE = "Are you sure want to delete {0} from cities list?";
             public const string DIALOG_OK = "Ok";
             public const string DIALOG_YES = "Yes";
             public const string DIALOG_NO = "No";

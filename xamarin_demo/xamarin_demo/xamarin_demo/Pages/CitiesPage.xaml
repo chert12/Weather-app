@@ -1,7 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="xamarin_demo.Pages.CitiesPage">
+             x:Class="xamarin_demo.Pages.CitiesPage"
+             Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="{Binding ToolbarIcon}" Command="{Binding AddCityCommand}"/>
+    </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="cityList"
@@ -25,7 +30,7 @@
                                     </Image.Source>
                                 </Image>
                                 <Label Grid.Column="1" Text="{Binding CityName}" FontSize="Medium" VerticalOptions="Center"/>
-                                <ImageButton CommandParameter="{Binding Id}" Grid.Column="2" Clicked="OnRemoveButtonClicked" BackgroundColor="Transparent">
+                                <ImageButton Grid.Column="2" Command="{Binding RemoveCommand}" BackgroundColor="Transparent">
                                     <ImageButton.Source>
                                         <OnPlatform x:TypeArguments="ImageSource"
                                         iOS="Images/round_delete_outline_white_24"

@@ -19,29 +19,27 @@ namespace xamarin_demo.Pages
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            this.SetValue(NavigationPage.BarBackgroundColorProperty, new Color(197, 96, 0));
-            Init();
-            //ItemsSource = 
+            BindingContext = new WeatherPageViewModel(Navigation);
         }
 
-        private async void Init()
+        protected override void OnDisappearing()
         {
-            //NetworkAdapter nd = new NetworkAdapter();
-            //var info = await nd.GetCurreentWeatherInfo("Kharkiv");
-            //var info2 = await nd.GetCurreentWeatherInfo("Kiev");
-            var items = App.Database.GetUserWeatherData();
-            var bindingData = new List<CurrentWeatherViewModel>();
-            foreach(var i in items)
+            UnapplyBindings();
+            Children.Clear();
+            base.OnDisappearing();
+        }
+
+        protected override void OnAppearing()
+        {
+            try
             {
-                bindingData.Add(new CurrentWeatherViewModel(i));
+                BindingContext = new WeatherPageViewModel(Navigation);
             }
-            ItemsSource = bindingData;
-            //ItemsSource = new List<CurrentWeatherViewModel>() { new CurrentWeatherViewModel(CityWeatherData.FromApiData(info)), new CurrentWeatherViewModel(CityWeatherData.FromApiData(info2)) };
-        }
-
-        private async void OnSettingsButtonClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new CitiesPage());
+            catch(Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+            }
+            base.OnAppearing();
         }
     }
 }

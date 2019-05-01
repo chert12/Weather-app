@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="xamarin_demo.Pages.WeatherMain">
+             xmlns:control="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             x:Class="xamarin_demo.Pages.WeatherMain"
+             ItemsSource="{Binding Pages}">
     <CarouselPage.ItemTemplate>
         <DataTemplate>
             <ContentPage>
@@ -47,8 +49,8 @@
                         <Label HorizontalOptions="Center" Text="{Binding LocalTime}" TextColor="White" FontSize="Micro"
                                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0, Constant=5}"
                                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=0.95, Constant=0}"/>
-                        
-                        <ImageButton WidthRequest="30" HeightRequest="30" BackgroundColor="Transparent" Clicked="OnSettingsButtonClicked"
+
+                        <ImageButton WidthRequest="30" HeightRequest="30" BackgroundColor="Transparent" Command="{Binding SettingsCommand}"
                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-35}"
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=0, Constant=5}">
                             <ImageButton.Source>

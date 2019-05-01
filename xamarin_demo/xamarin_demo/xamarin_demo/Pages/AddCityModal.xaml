@@ -6,11 +6,8 @@
              BackgroundColor="Transparent">
     <ContentPage.Content>
         <StackLayout WidthRequest="400" HeightRequest="600" VerticalOptions="Center" HorizontalOptions="Center">
-            <forms:AutoSuggestBox PlaceholderText="Enter city" WidthRequest="200" x:Name="entry"
-                TextChanged="AutoSuggestBox_TextChanged"
-                QuerySubmitted="AutoSuggestBox_QuerySubmitted"
-                SuggestionChosen="AutoSuggestBox_SuggestionChosen"/>
-            <Button Text="Add" Clicked="OnAddButtonClicked"/>
+            <forms:AutoSuggestBox PlaceholderText="Enter city" WidthRequest="200" x:Name="entry"/>
+            <Button Text="Add" Command="{Binding AddButtonCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

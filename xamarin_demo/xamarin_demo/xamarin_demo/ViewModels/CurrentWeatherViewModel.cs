@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Windows.Input;
 using Xamarin.Forms;
 using xamarin_demo.Data;
 using xamarin_demo.Data.Api;
+using xamarin_demo.Pages;
 using xamarin_demo.Services;
 
 namespace xamarin_demo.ViewModels
@@ -13,7 +15,9 @@ namespace xamarin_demo.ViewModels
     public class CurrentWeatherViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+        public ICommand SettingsCommand { get; private set; }
         private IImageProvider _imageProvider;
+        private INavigation _navigation;
 
         private string _temperature;
         private string _city;
@@ -28,14 +32,16 @@ namespace xamarin_demo.ViewModels
 
 
 
-        public CurrentWeatherViewModel(CityWeatherData info)
+        public CurrentWeatherViewModel(CityWeatherData info, INavigation navigation)
         {
+            _navigation = navigation;
             Init(info);
         }
 
         public async void Init(CityWeatherData info)
         {
             _imageProvider = DependencyService.Get<IImageProvider>();
+            SettingsCommand = new Command(OnSettingsButtonClicked);
 
             DateTime now = DateTime.Now.ToLocalTime();
             TimeSpan t = now - Utilities.GetTime(info.LastUpdateTime);
@@ -162,6 +168,11 @@ namespace xamarin_demo.ViewModels
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propName));
+        }
+
+        private async void OnSettingsButtonClicked()
+        {
+            await _navigation.PushAsync(new CitiesPage());
         }
     }
 }
